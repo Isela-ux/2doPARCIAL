@@ -14,7 +14,7 @@ class Activity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SecondScreen(onBackPressed = { finish() })
+            SecondScreen(onBackPressed = { finish() })  // Configura el contenido de la actividad con SecondScreen
         }
     }
 }
@@ -23,28 +23,28 @@ class Activity2 : ComponentActivity() {
 fun SecondScreen(onBackPressed: () -> Unit) {
     // Pantalla secundaria con lista de restaurantes
     Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
+        modifier = Modifier.fillMaxSize(),  // El contenedor de la superficie ocupa toda la pantalla
+        color = MaterialTheme.colorScheme.background  // Color de fondo, tomará el valor definido en el tema de la app
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .fillMaxSize()  // La columna ocupa toda la pantalla
+                .padding(16.dp),  // Añade un espaciado interno alrededor de los elementos dentro de la columna
+            horizontalAlignment = Alignment.CenterHorizontally,  // Alinea los elementos horizontalmente en el centro
+            verticalArrangement = Arrangement.spacedBy(16.dp)  // Espaciado entre los elementos en la columna
         ) {
-            // Lista de restaurantes
+            // Lista de restaurantes representada por textos
             Text("Restaurante 1")
             Text("Restaurante 2")
             Text("Restaurante 3")
-            
-            // Botón para volver
+
+            // Botón para regresar a la pantalla anterior
             Button(
-                onClick = onBackPressed,
-                modifier = Modifier.padding(top = 16.dp)
+                onClick = onBackPressed,  // Al hacer clic, ejecuta la función onBackPressed, que llama a 'finish()' para cerrar la actividad
+                modifier = Modifier.padding(top = 16.dp)  // Añade un espaciado superior al botón
             ) {
-                Text("Fechas importantes")
+                Text("Fechas importantes")  // Texto dentro del botón
             }
         }
     }
-} 
+}
